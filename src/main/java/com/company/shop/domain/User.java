@@ -22,7 +22,7 @@ import java.util.Set;
 /**
  * A user.
  */
-@org.springframework.data.mongodb.core.mapping.Document(collection = "jhi_user")
+@org.springframework.data.mongodb.core.mapping.Document(collection = "user")
 @org.springframework.data.elasticsearch.annotations.Document(indexName = "user")
 public class User extends AbstractAuditingEntity implements Serializable {
 
