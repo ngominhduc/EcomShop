@@ -47,11 +47,11 @@ public class ProductResourceIT {
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
 
-    private static final String DEFAULT_QUANTITY = "AAAAAAAAAA";
-    private static final String UPDATED_QUANTITY = "BBBBBBBBBB";
+    private static final Integer DEFAULT_QUANTITY = 1;
+    private static final Integer UPDATED_QUANTITY = 2;
 
-    private static final String DEFAULT_PRICE = "AAAAAAAAAA";
-    private static final String UPDATED_PRICE = "BBBBBBBBBB";
+    private static final Integer DEFAULT_PRICE = 1;
+    private static final Integer UPDATED_PRICE = 2;
 
     @Autowired
     private ProductRepository productRepository;

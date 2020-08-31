@@ -16,14 +16,14 @@
         },
         {
             "fieldName": "quantity",
-            "fieldType": "String",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]
         },
         {
             "fieldName": "price",
-            "fieldType": "String",
+            "fieldType": "Integer",
             "fieldValidateRules": [
                 "required"
             ]

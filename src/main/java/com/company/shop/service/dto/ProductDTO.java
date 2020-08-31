@@ -17,10 +17,10 @@ public class ProductDTO implements Serializable {
     private String description;
 
     @NotNull
-    private String quantity;
+    private Integer quantity;
 
     @NotNull
-    private String price;
+    private Integer price;
 
 
     public String getId() {
@@ -47,19 +47,19 @@ public class ProductDTO implements Serializable {
         this.description = description;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -90,8 +90,8 @@ public class ProductDTO implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
-            ", quantity='" + getQuantity() + "'" +
-            ", price='" + getPrice() + "'" +
+            ", quantity=" + getQuantity() +
+            ", price=" + getPrice() +
             "}";
     }
 }

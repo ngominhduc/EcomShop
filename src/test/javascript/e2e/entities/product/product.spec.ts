@@ -43,14 +43,14 @@ describe('Product e2e test', () => {
     await promise.all([
       productUpdatePage.setNameInput('name'),
       productUpdatePage.setDescriptionInput('description'),
-      productUpdatePage.setQuantityInput('quantity'),
-      productUpdatePage.setPriceInput('price')
+      productUpdatePage.setQuantityInput('5'),
+      productUpdatePage.setPriceInput('5')
     ]);
 
     expect(await productUpdatePage.getNameInput()).to.eq('name', 'Expected Name value to be equals to name');
     expect(await productUpdatePage.getDescriptionInput()).to.eq('description', 'Expected Description value to be equals to description');
-    expect(await productUpdatePage.getQuantityInput()).to.eq('quantity', 'Expected Quantity value to be equals to quantity');
-    expect(await productUpdatePage.getPriceInput()).to.eq('price', 'Expected Price value to be equals to price');
+    expect(await productUpdatePage.getQuantityInput()).to.eq('5', 'Expected quantity value to be equals to 5');
+    expect(await productUpdatePage.getPriceInput()).to.eq('5', 'Expected price value to be equals to 5');
 
     await productUpdatePage.save();
     expect(await productUpdatePage.getSaveButton().isPresent(), 'Expected save button disappear').to.be.false;

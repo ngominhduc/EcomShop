@@ -1,6 +1,8 @@
 package com.company.shop.config.dbmigrations;
 
 import com.company.shop.domain.Authority;
+import com.company.shop.domain.Category;
+import com.company.shop.domain.Product;
 import com.company.shop.domain.User;
 import com.company.shop.security.AuthoritiesConstants;
 
@@ -89,5 +91,30 @@ public class InitialSetupMigration {
         userUser.setCreatedDate(Instant.now());
         userUser.getAuthorities().add(userAuthority);
         mongoTemplate.save(userUser);
+    }
+
+    @ChangeSet(order = "03", author = "initiator", id = "03-addCategory")
+    public void addCategory(MongoTemplate mongoTemplate){
+        Category c1 = new Category();
+        c1.setName("Andoird");
+        mongoTemplate.save(c1);
+
+        Category c2 = new Category();
+        c2.setName("IOS");
+        mongoTemplate.save(c2);
+
+        Category c3 = new Category();
+        c3.setName("Laptop");
+        mongoTemplate.save(c3);
+    }
+
+    @ChangeSet(order = "04", author = "initiator", id = "04-addProduct")
+    public void addProduct(MongoTemplate mongoTemplate){
+        Product p1 = new Product();
+        p1.setName("ROG 2");
+        p1.description("game phone");
+        p1.setQuantity(20);
+        p1.setPrice(400);
+        mongoTemplate.save(p1);
     }
 }

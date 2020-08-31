@@ -29,11 +29,11 @@ public class Product implements Serializable {
 
     @NotNull
     @Field("quantity")
-    private String quantity;
+    private Integer quantity;
 
     @NotNull
     @Field("price")
-    private String price;
+    private Integer price;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public String getId() {
@@ -70,29 +70,29 @@ public class Product implements Serializable {
         this.description = description;
     }
 
-    public String getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public Product quantity(String quantity) {
+    public Product quantity(Integer quantity) {
         this.quantity = quantity;
         return this;
     }
 
-    public void setQuantity(String quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
-    public String getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public Product price(String price) {
+    public Product price(Integer price) {
         this.price = price;
         return this;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
@@ -119,8 +119,8 @@ public class Product implements Serializable {
             "id=" + getId() +
             ", name='" + getName() + "'" +
             ", description='" + getDescription() + "'" +
-            ", quantity='" + getQuantity() + "'" +
-            ", price='" + getPrice() + "'" +
+            ", quantity=" + getQuantity() +
+            ", price=" + getPrice() +
             "}";
     }
 }
