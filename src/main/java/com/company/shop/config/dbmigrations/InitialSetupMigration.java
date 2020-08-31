@@ -116,5 +116,12 @@ public class InitialSetupMigration {
         p1.setQuantity(20);
         p1.setPrice(400);
         mongoTemplate.save(p1);
+
+        Product p2 = new Product();
+        p2.setName("Iphone 11");
+        p2.description("iphone");
+        p2.setQuantity(20);
+        p2.setPrice(400);
+        mongoTemplate.save(p2);
     }
 }
