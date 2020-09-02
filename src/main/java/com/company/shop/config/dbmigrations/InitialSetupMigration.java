@@ -112,7 +112,7 @@ public class InitialSetupMigration {
     public void addProduct(MongoTemplate mongoTemplate){
         Product p1 = new Product();
         p1.setName("ROG 2");
-        p1.description("game phone");
+        p1.description("gaming phone");
         p1.setQuantity(20);
         p1.setPrice(400);
         mongoTemplate.save(p1);
@@ -123,5 +123,26 @@ public class InitialSetupMigration {
         p2.setQuantity(20);
         p2.setPrice(400);
         mongoTemplate.save(p2);
+
+        Product p3 = new Product();
+        p3.setName("Asus ROG GL552 vx");
+        p3.description("laptop");
+        p3.setQuantity(20);
+        p3.setPrice(400);
+        mongoTemplate.save(p3);
+
+        Product p4 = new Product();
+        p4.setName("DELL XPS");
+        p4.description(" CPU: Intel Core i7-8565U | GPU: Intel UHD 620 | RAM: 16GB");
+        p4.setQuantity(20);
+        p4.setPrice(400);
+        mongoTemplate.save(p4);
+
+        Product p5 = new Product();
+        p5.setName("Acer Aspire 5");
+        p5.description("  CPU: Intel Core i3-8145U | GPU: Intel UHD 620 | RAM: 4GB");
+        p5.setQuantity(20);
+        p5.setPrice(400);
+        mongoTemplate.save(p5);
     }
 }

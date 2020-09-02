@@ -1,10 +1,10 @@
-<div class="card" >
-    <img class="card-img-top" src="imageLaptop.jpg" alt="image holder">
+<div class="card" style="width: 100%; max-height: 100%">
+    <img class="card-img-top" src="https://i.ibb.co/pWTKvQ6/image-Laptop.jpg" alt="image holder">
     <div class="card-body">
-        <h5 class="card-title">{{product.name}}</h5>
+        <a [routerLink]="['/displayProduct', product.id]">{{product.id}}</a>
+        <p class="card-title">{{product.name}}</p>
         <p class="card-text">{{product.description}}</p>
-        <p>{{product.quantity}}</p>
-        <p>{{product.price}}</p>
+        <p>Price: {{product.price}} Euro</p>
         <a class="btn btn-primary">add to card</a>
     </div>
 </div>
