@@ -1,3 +1,6 @@
-<div *ngFor="let product of allProducts">
-    {{product.name}}
+<div class="row">
+    <div class="col-xl" style="margin-bottom: 10px" *ngFor="let product of allProducts">
+        <jhi-product-item [product] = "product"></jhi-product-item>
+    </div>
 </div>
+

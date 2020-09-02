@@ -9,13 +9,13 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
-  allProducts: Product[] | any;
+  allProducts: any;
 
   constructor(private productService: ProductService) {
     this.productService.query().subscribe((res: HttpResponse<Product[]>) => this.bindBody(res.body));
   }
 
-  private bindBody(data: Product[] | any) {
+  private bindBody(data: Product[] | null) {
     this.allProducts = data;
   }
 
