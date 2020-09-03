@@ -1,7 +1,11 @@
 package com.company.shop.service.dto;
 
 import javax.validation.constraints.*;
+
+import com.company.shop.domain.Comments;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -22,6 +26,15 @@ public class ProductDTO implements Serializable {
     @NotNull
     private Integer price;
 
+    private ArrayList<Comments> comments;
+
+    public ArrayList<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comments> cm) {
+        this.comments = cm;
+    }
 
     public String getId() {
         return id;
@@ -86,12 +99,7 @@ public class ProductDTO implements Serializable {
 
     @Override
     public String toString() {
-        return "ProductDTO{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", quantity=" + getQuantity() +
-            ", price=" + getPrice() +
-            "}";
+        return "ProductDTO{" + "id=" + getId() + ", name='" + getName() + "'" + ", description='" + getDescription()
+                + "'" + ", quantity=" + getQuantity() + ", price=" + getPrice() + "}";
     }
 }

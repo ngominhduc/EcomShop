@@ -19,5 +19,14 @@ export const errorRoute: Routes = [
       pageTitle: 'error.title',
       errorMessage: 'error.http.403'
     }
+  },
+  {
+    path: '404',
+    component: ErrorComponent,
+    data: {
+      authorities: [],
+      pageTitle: 'error.title',
+      errorMessage: 'error.http.404'
+    }
   }
 ];

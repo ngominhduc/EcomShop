@@ -25,5 +25,6 @@ export class ProductPageComponent implements OnInit {
 
   bindData(data: any) {
     this.product = data;
+    console.log(data);
   }
 }

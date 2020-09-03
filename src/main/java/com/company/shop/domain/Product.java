@@ -5,8 +5,8 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.validation.constraints.*;
 
-import org.springframework.data.elasticsearch.annotations.FieldType;
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * A Product.
@@ -35,7 +35,18 @@ public class Product implements Serializable {
     @Field("price")
     private Integer price;
 
+    @Field("comments")
+    private ArrayList<Comments> comments;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
+    public ArrayList<Comments> getComments() {
+        return comments;
+    }
+
+    public void setComments(ArrayList<Comments> c) {
+        this.comments = c;
+    }
+
     public String getId() {
         return id;
     }
@@ -95,7 +106,8 @@ public class Product implements Serializable {
     public void setPrice(Integer price) {
         this.price = price;
     }
-    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
+    // jhipster-needle-entity-add-getters-setters - JHipster will add getters and
+    // setters here, do not remove
 
     @Override
     public boolean equals(Object o) {
@@ -115,12 +127,9 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "Product{" +
-            "id=" + getId() +
-            ", name='" + getName() + "'" +
-            ", description='" + getDescription() + "'" +
-            ", quantity=" + getQuantity() +
-            ", price=" + getPrice() +
-            "}";
+        return "Product{" + "id=" + getId() + ", name='" + getName() + "'" + ", description='" + getDescription() + "'"
+                + ", quantity=" + getQuantity() + ", price=" + getPrice() + "}";
     }
+
+	
 }

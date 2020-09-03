@@ -2,6 +2,7 @@ package com.company.shop.config.dbmigrations;
 
 import com.company.shop.domain.Authority;
 import com.company.shop.domain.Category;
+import com.company.shop.domain.Comments;
 import com.company.shop.domain.Product;
 import com.company.shop.domain.User;
 import com.company.shop.security.AuthoritiesConstants;
@@ -11,6 +12,7 @@ import com.github.mongobee.changeset.ChangeSet;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
 import java.time.Instant;
+import java.util.ArrayList;
 
 /**
  * Creates the initial database setup.
@@ -110,11 +112,46 @@ public class InitialSetupMigration {
 
     @ChangeSet(order = "04", author = "initiator", id = "04-addProduct")
     public void addProduct(MongoTemplate mongoTemplate){
+
+        User adminUser = mongoTemplate.findById("user-2", User.class);
+        String date = "03-09-2020;14:14:14";
+        ArrayList<Comments> comments1 = new ArrayList<>();
+        ArrayList<Comments> comments2 = new ArrayList<>();
+
+        Comments comment1 = new Comments();
+        comment1.setTitle("test comment 1");
+        comment1.setBody("test body comment 1");
+        comment1.setNote(9);
+        comment1.setDate(date);
+        comment1.setUser(adminUser);
+        
+        Comments comment2 = new Comments();
+        comment2.setTitle("test comment 2");
+        comment2.setBody("test body comment 2");
+        comment2.setNote(9);
+        comment2.setDate(date);
+        comment2.setUser(adminUser);
+
+        Comments comment3 = new Comments();
+        comment3.setTitle("test comment 3");
+        comment3.setBody("test body comment 3");
+        comment3.setNote(9);
+        comment3.setDate(date);
+        comment3.setUser(adminUser);
+
+        comments1.add(comment1);
+        comments1.add(comment2);
+        comments1.add(comment3);
+
+        comments2.add(comment2);
+        comments2.add(comment3);
+
         Product p1 = new Product();
         p1.setName("ROG 2");
         p1.description("gaming phone");
         p1.setQuantity(20);
         p1.setPrice(400);
+        p1.setComments(comments1);
         mongoTemplate.save(p1);
 
         Product p2 = new Product();
@@ -122,6 +159,7 @@ public class InitialSetupMigration {
         p2.description("iphone");
         p2.setQuantity(20);
         p2.setPrice(400);
+        p2.setComments(comments2);
         mongoTemplate.save(p2);
 
         Product p3 = new Product();
@@ -129,6 +167,7 @@ public class InitialSetupMigration {
         p3.description("laptop");
         p3.setQuantity(20);
         p3.setPrice(400);
+        p3.setComments(comments1);
         mongoTemplate.save(p3);
 
         Product p4 = new Product();
@@ -136,6 +175,7 @@ public class InitialSetupMigration {
         p4.description(" CPU: Intel Core i7-8565U | GPU: Intel UHD 620 | RAM: 16GB");
         p4.setQuantity(20);
         p4.setPrice(400);
+        p4.setComments(comments2);
         mongoTemplate.save(p4);
 
         Product p5 = new Product();
@@ -143,6 +183,7 @@ public class InitialSetupMigration {
         p5.description("  CPU: Intel Core i3-8145U | GPU: Intel UHD 620 | RAM: 4GB");
         p5.setQuantity(20);
         p5.setPrice(400);
+        p5.setComments(comments1);
         mongoTemplate.save(p5);
     }
 }
