@@ -4,10 +4,10 @@ import { RouterModule } from '@angular/router';
 
 import { ProductPageComponent } from './product-page.component';
 import { PRODUCT_PAGE_ROUTE } from './product-page.route';
-
+import { CommentsComponent } from './comments/comments.component';
 @NgModule({
   imports: [CommonModule, RouterModule.forRoot([PRODUCT_PAGE_ROUTE])],
-  declarations: [ProductPageComponent],
+  declarations: [ProductPageComponent, CommentsComponent],
   entryComponents: [],
   providers: []
 })

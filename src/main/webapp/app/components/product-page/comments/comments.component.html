@@ -1,0 +1,6 @@
+<p>comments work</p>
+<div *ngFor="let comment of comments">
+    <p>Comment by {{comment.user.login}}</p>
+    <p>{{comment?.title}}</p>
+    <p>{{comment?.body}}</p>
+</div>

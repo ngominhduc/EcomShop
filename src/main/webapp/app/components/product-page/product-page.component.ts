@@ -10,7 +10,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./product-page.component.scss']
 })
 export class ProductPageComponent implements OnInit {
-  product: any;
+  product!: Product;
   id!: string;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) {}
@@ -25,6 +25,5 @@ export class ProductPageComponent implements OnInit {
 
   bindData(data: any) {
     this.product = data;
-    console.log(data);
   }
 }
