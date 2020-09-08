@@ -1,6 +1,32 @@
-<p>comments work</p>
+<p>Read reviews and comments</p>
 <div *ngFor="let comment of comments">
     <p>Comment by {{comment.user.login}}</p>
     <p>{{comment?.title}}</p>
     <p>{{comment?.body}}</p>
+</div>
+<button (click)="addComments()">write a comment</button>
+<div *ngIf="this.accountService.isAuthenticated()">
+    <form (ngSubmit)="addComments(form.value)" novalidate #form="ngForm" class="row justify-content-md-left">
+
+        <div class="form-group">
+            <label class="form-control-label" for="commentTitle">Write a title for your comment</label>
+            <input required ngModel type="text" class="form-control" name="commentTitle" id="commentTitle"
+                [(ngModel)]="title">
+            <div class="col alert alert-danger" role="alert" *ngIf="form.controls.commentTitle?.errors?.required">
+                Enter your comment title please.
+            </div>
+
+            <div class="form-group">
+                <label class="form-control-label" for="commentBody">Tell us more about what do you think:</label>
+                <textarea required minlength="10" maxlength="50" ngModel type="text" class="form-control"
+                    name="commentBody" id="commentBody" [(ngModel)]="body"></textarea>
+                <div class="col alert alert-danger" role="alert"
+                    *ngIf="form.controls.commentBody?.invalid && form.controls.commentBody?.touched">
+                    <div *ngIf="form.controls.commentBody?.errors?.required">Write a comment please.</div>
+                    <div *ngIf="form.controls.commentBody?.errors?.minlength">Your comment should be longer</div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" [disabled]="form.invalid">submit</button>
+    </form>
 </div>

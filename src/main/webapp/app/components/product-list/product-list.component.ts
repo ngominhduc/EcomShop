@@ -10,14 +10,19 @@ import { HttpResponse } from '@angular/common/http';
 })
 export class ProductListComponent implements OnInit {
   allProducts: any;
+  isLoaded!: Promise<boolean>;
+  DataIsLoaded: boolean = false;
 
-  constructor(private productService: ProductService) {
-    this.productService.query().subscribe((res: HttpResponse<Product[]>) => this.bindBody(res.body));
+  constructor(private productService: ProductService) {}
+
+  ngOnInit() {
+    this.productService.query().subscribe((res: HttpResponse<Product[]>) => {
+      this.bindData(res.body);
+    });
   }
 
-  private bindBody(data: Product[] | null) {
+  private bindData(data: Product[] | null) {
     this.allProducts = data;
+    this.isLoaded = Promise.resolve(true);
   }
-
-  ngOnInit() {}
 }

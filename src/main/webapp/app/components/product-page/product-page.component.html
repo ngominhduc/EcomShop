@@ -4,4 +4,6 @@
     <p>Quantity : {{product?.quantity}}</p>
     <p>Price : {{product?.price}}</p>
 </div>
-<jhi-comments [comments]="product?.comments"></jhi-comments>
+<div *ngIf="dataIsLoaded | async">
+    <jhi-comments [product] = "product"></jhi-comments>
+</div>

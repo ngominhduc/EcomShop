@@ -1,4 +1,4 @@
-<div class="row">
+<div *ngIf="isLoaded | async" class="row">
     <div class="col-xl" style="margin-bottom: 10px" *ngFor="let product of allProducts">
         <jhi-product-item [product] = "product"></jhi-product-item>
     </div>

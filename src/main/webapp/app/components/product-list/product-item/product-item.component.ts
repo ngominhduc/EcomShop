@@ -6,7 +6,7 @@ import { Product } from '../../../shared/model/product.model';
   styleUrls: ['./product-item.component.scss']
 })
 export class ProductItemComponent implements OnInit {
-  @Input() product: Product | undefined;
+  @Input() product!: Product;
 
   constructor() {}
 

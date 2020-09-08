@@ -12,6 +12,8 @@ import { HttpResponse } from '@angular/common/http';
 export class ProductPageComponent implements OnInit {
   product!: Product;
   id!: string;
+  showComment: boolean = false;
+  dataIsLoaded!: Promise<boolean>;
 
   constructor(private route: ActivatedRoute, private productService: ProductService, private router: Router) {}
 
@@ -20,10 +22,17 @@ export class ProductPageComponent implements OnInit {
     this.productService
       .find(this.id)
       .toPromise()
-      .then((res: HttpResponse<Product>) => this.bindData(res.body));
+      .then((res: HttpResponse<Product>) => {
+        this.bindData(res.body);
+        this.dataIsLoaded = Promise.resolve(true);
+      });
   }
 
   bindData(data: any) {
     this.product = data;
+  }
+
+  showComments() {
+    this.showComment = true;
   }
 }
