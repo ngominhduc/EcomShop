@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { SERVER_API_URL } from 'app/app.constants';
 import { createRequestOption, SearchWithPagination } from 'app/shared/util/request-util';
 import { IProduct } from 'app/shared/model/product.model';
+import { IComments } from 'app/shared/model/comments.model';
 
 type EntityResponseType = HttpResponse<IProduct>;
 type EntityArrayResponseType = HttpResponse<IProduct[]>;
@@ -22,6 +23,10 @@ export class ProductService {
 
   update(product: IProduct): Observable<EntityResponseType> {
     return this.http.put<IProduct>(this.resourceUrl, product, { observe: 'response' });
+  }
+
+  updateComments(comment: IComments): Observable<HttpResponse<IComments>> {
+    return this.http.put<IComments>(this.resourceUrl, comment, { observe: 'response' });
   }
 
   find(id: string): Observable<EntityResponseType> {

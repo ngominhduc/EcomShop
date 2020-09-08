@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'app/shared/model/product.model';
+import { IProduct } from 'app/shared/model/product.model';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { ProductService } from 'app/entities/product/product.service';
 import { HttpResponse } from '@angular/common/http';
@@ -10,7 +10,7 @@ import { HttpResponse } from '@angular/common/http';
   styleUrls: ['./product-page.component.scss']
 })
 export class ProductPageComponent implements OnInit {
-  product!: Product;
+  product!: IProduct;
   id!: string;
   showComment: boolean = false;
   dataIsLoaded!: Promise<boolean>;
@@ -22,7 +22,7 @@ export class ProductPageComponent implements OnInit {
     this.productService
       .find(this.id)
       .toPromise()
-      .then((res: HttpResponse<Product>) => {
+      .then((res: HttpResponse<IProduct>) => {
         this.bindData(res.body);
         this.dataIsLoaded = Promise.resolve(true);
       });
